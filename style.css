@@ -1,0 +1,16 @@
+.quiz-container 
+{ 
+    max-width: 500px; margin: auto; background-color: #1f2937; border-radius: 1rem; padding: 2rem; color: white; 
+}
+.option 
+{
+     background-color: #374151; border-radius: 0.5rem; padding: 1rem; margin-top: 1rem; cursor: pointer; transition: background-color 0.3s; 
+}
+.option:hover 
+{
+     background-color: #4b5563; 
+}
+.active 
+{
+     outline: 2px solid #3b82f6; 
+}

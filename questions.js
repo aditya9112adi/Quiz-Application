@@ -1,4 +1,4 @@
-// questions.js
+
 const quizData = {
   easy: [
     {

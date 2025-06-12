@@ -48,7 +48,7 @@
       } else if (difficulty === 'hard') {
         displayDifficulty = 'Hard';
       } else {
-        displayDifficulty = difficulty; // fallback if unknown
+        displayDifficulty = difficulty;
       }
 
 document.getElementById('difficulty').textContent = displayDifficulty;

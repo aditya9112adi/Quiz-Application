@@ -39,7 +39,21 @@
     function startQuiz() {
       document.getElementById('start-screen').classList.add('hide');
       document.getElementById('quiz-screen').classList.remove('hide');
-      document.getElementById('difficulty').textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+      let displayDifficulty = '';
+
+      if (difficulty === 'easy') {
+        displayDifficulty = 'Easy';
+      } else if (difficulty === 'medium') {
+        displayDifficulty = 'Medium';
+      } else if (difficulty === 'hard') {
+        displayDifficulty = 'Hard';
+      } else {
+        displayDifficulty = difficulty; // fallback if unknown
+      }
+
+document.getElementById('difficulty').textContent = displayDifficulty;
+loadQuestion();
+
       loadQuestion();
       startTimer();
     }

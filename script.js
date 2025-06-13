@@ -51,8 +51,8 @@
         displayDifficulty = difficulty;
       }
 
-document.getElementById('difficulty').textContent = displayDifficulty;
-loadQuestion();
+      document.getElementById('difficulty').textContent = displayDifficulty;
+      loadQuestion();
 
       loadQuestion();
       startTimer();
@@ -104,7 +104,10 @@ loadQuestion();
     function updateTimer() {
       let mins = Math.floor(timeLeft / 60);
       let secs = timeLeft % 60;
-      document.getElementById('timer').textContent = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      let timer = document.getElementById('timer');
+      let minutes = mins < 10 ? "0" + mins : mins;
+      let seconds = secs < 10 ? "0" + secs : secs;
+      timer.textContent = minutes + ":" + seconds;
     }
 
     function updateProgress() {

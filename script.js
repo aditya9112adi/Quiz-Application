@@ -60,9 +60,18 @@ loadQuestion();
 
     function loadQuestion() {
       let q = questions[currentQuestion];
-      document.getElementById('question').textContent = `Question ${currentQuestion + 1} of 5\n\n${q.q}`;
-      for (let i = 0; i < 4; i++) {
-        document.getElementById('opt' + i).textContent = `${String.fromCharCode(65 + i)}. ${q.options[i]}`;
+      let questionElement = document.getElementById('question');
+
+      let questionText = "Question " + (currentQuestion + 1) + " of 5";
+      questionText += "\n\n" + q.q;
+      questionElement.textContent = questionText;
+
+      let i = 0;
+      let letters = ['A', 'B', 'C', 'D'];
+
+      while (i < 4) {
+        document.getElementById('opt' + i).textContent = letters[i] + ". " + q.options[i];
+        i++;
       }
       updateProgress();
     }

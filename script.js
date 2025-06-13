@@ -27,10 +27,7 @@
     ];
 
     let currentQuestion = 0;
-    let score = 0;
     let difficulty = 'easy';
-    let timer;
-    let timeLeft = 90;
 
     function setDifficulty(level) {
       difficulty = level;
@@ -89,6 +86,8 @@
       }
     }
 
+    let timeLeft = 90;
+    let timer;
     function startTimer() {
       updateTimer();
       timer = setInterval(() => {
@@ -122,13 +121,21 @@
       document.getElementById('final-difficulty').textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
     }
 
+    let score = 0;
     function saveHighScore() {
-      let name = document.getElementById('name').value;
-      if (!name) return;
-      let scores = JSON.parse(localStorage.getItem('highScores')) || [];
-      scores.push({ name: name, score: score, difficulty: difficulty });
-      localStorage.setItem('highScores', JSON.stringify(scores));
-      alert("High score saved!");
+        let name = document.getElementById('name').value;
+        if (name == '') {
+          return;
+        }
+        let scores = localStorage.getItem('highScores');
+        if (scores == null) {
+          scores = []; 
+        } else {
+          scores = JSON.parse(scores);
+        }
+        scores.push({ name: name, score: score, difficulty: difficulty });
+        localStorage.setItem('highScores', JSON.stringify(scores));
+        alert("High score saved!");
     }
 
     function viewHighScores() {
